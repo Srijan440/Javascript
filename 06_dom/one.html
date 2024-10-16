@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dom Learning</title>
+    <style>
+        .bg-background{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-background">
+
+    <h1 id="title" class="heading">My name is Srijan Singh<span style="display: none;"> Hey whassup nigga!</span></h1>
+    <h2>I am from Patna!</h2>
+    <h2>I am from Patna!</h2>
+    <h2>I am from Patna!</h2>
+    <h2>I am from Patna!</h2>
+    <input type="password" name="" id="">
+    <p>I am from Patna!</p>    
+    <ul>
+        <li class="Listitem">1</li>
+        <li class="Listitem">2</li>
+        <li class="Listitem">3</li>
+    </ul>
+
+</body>
+</html>
+
+
+
+
+<!--document.getElementById('title')  //<h1 id="title" class="head" style="background-color: grey; padding: 20px; border-radius: 20px;">My name is Srijan Singh<span> Hey whassup nigga!</span></h1>-->
+<!-- document.getElementById('title').id   //'title'-->
+<!-- document.getElementById('title').className   
+     document.getElementById('title').getAttribute('id')
+     document.getElementById('title').getAttribute('class')
+     document.getElementById('title').setAttribute('class','head')
+     const Title = document.getElementById('title')                 putting value in an const
+     Title.style.backgroundColor = 'grey'                           now we style the component by doing this
+     Title.style.padding = '20px'
+     Title.style.borderRadius = '20px'
+     Title.textContent                                              'My name is Srijan Singh Hey whassup nigga!'
+     Title.innerHTML                                                'My name is Srijan Singh<span style="display: none;"> Hey whassup nigga!</span>'
+     Title.innerText                                                'My name is Srijan Singh'
+
+
+     query selector:
+     document.querySelector('#title')                     h1#title.heading(# use for title)-----------------
+     document.querySelector('.heading')                   h1#title.heading(. used for classes)---------------
+     document.querySelector('h2')                         body > (body ke first h2 ko) h2:nth-child(2) ex: I am from Patna
+     document.querySelector('input[type="password"]')     <input type="password" name id>
+
+     query selectorAll:
+     document.querySelectorAll('#title')                     h1#title.heading(# use for title)-----------------
+     document.querySelectorAll('.heading')                   h1#title.heading(. used for classes)---------------
+     document.querySelectorAll('h2') 
+
+
+     
+    //like if i want to color the first li from the ul list to color then:
+    document.querySelector('ul')                          to get ul in which all li are present
+    const myul = document.querySelector('ul')             ul get stored in myul
+    const greenli = myul.querySelector('li')                    first li is stored in greenli 
+    greenli.style.backgroundColor = 'green'               now it coloured in green color
+    greenli.style.borderRadius = '20px'                   now it changed the border radius by 20px
+    greenli.innerText = 'One'                             1 -> One ho jayega
+    document.querySelector('li')                          NodeList(3) [li, li, li]
+    const tempList = document.querySelectorAll('li')      Store kiya templist me (querySelectorAll ke through)
+    tempList[1].style.backgroundColor = 'green'           ab dusre wale <li> ko bhi green ker diya
+    tempList[1].style.borderRadius = '20px'               borderRadius 20px/--
+
+//querySelector me index nhi batana rahta hai but querySelectorAll me index batane ki jarrurat rahta hai for like ex:-
+  if we do const myNum = querySelectorAll('h1'); _______-> myNum[1].style.backgroundColor = 'green' krna padta hai
+  bulki querySelector('h1'); is me aisa krne ke baad []index dene ka jarrurat nhi padta hai kyunki wo  bydefault 
+  first index ko hi maan leta hai....
+
+  now we use for_each in queryselectorAll (use: when we have list and we want changes for each line)
+
+
+  one point to be remember that nodeList are not an array (it contain forEach loop but it doesnt contain Map) 
+  And here <li> and <h2> are the nodeList.../////  :NodeList(4) [h2, h2, h2, h2],  :HTMLCollection(3) [li, li, li]
+
+
+//NodeList: Can be static (doesn't change) or live (updates when the DOM changes), depending on how it's retrieved.
+            It is usually returned by querySelectorAll().
+//HTMLCollection: Always live, meaning it updates automatically when the DOM changes. It is returned by 
+                  getElementsByTagName() and other similar methods.
+
+//NodeList : me direct for_each lag skta hai but //HTMLCollection me nhi lag sakta usko pehle transform krna padta hai
+            for NodeList :-> reference line: 70,94  (queryselectorAll('') use kiye the li pe to NodeList bana)
+            for HTMLCollection :-> reference line: 107  (.getElementsByClassName('') use kiye the li pe to HTMLCollection bana)
+
+
+
+  tempList.forEach(function (li) {                         shift + enter to change the line
+    li.style.backgroundColor = 'green';                    use semicolon at the end of the line 
+    li.style.borderRadius = '20px';
+    })
+
+
+//now we select by .getElementsByClassName('') which make list in (HTMLCollection []) and it doesn't contain for_each and Map
+  so we convert it into Array by (Array.from('tempClassList'))
+
+
+    const tempClassList = document.getElementsByClassName('Listitem')         //Listitem : ClassName
+    Array.from(tempClassList)                                                  converted into Array
+    const myConvertedArray = Array.from(tempClassList)                         stored that array in myConvertedArray 
+  
+//now it converted into array so now we apply for_Each on it ....................
+
+    myConvertedArray.forEach(function (li){
+    li.style.color = 'Orange'
+    })
+
+ -->

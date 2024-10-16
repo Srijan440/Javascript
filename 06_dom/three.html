@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Dom | Part2</title>
+</head>
+<body style="background-color: #212121;color: #fff ">
+   
+    
+</body>
+<script>
+const free = document.createElement('div')
+console.log(free);              //<div></div>
+// sara kaam div ke ander chalega, inshort div create hoga
+free.className = "main"         //<div><class='main'> </main> </div>
+free.id = "1"                //<div class='main' id='myId'> </div>
+
+free.setAttribute("title","generated title")   //<div><class='main' id='myId' title="generated title"></div>
+free.style.backgroundColor = "Red"
+free.style.padding = "30px"
+// free.innerText = 'Hello, World!'             //it's a way to add context which will display 
+//well it is not a only way to add context
+
+const addText = document.createTextNode('Hello, World!');
+free.appendChild(addText)                                  //it takes two lines to add text
+
+document.body.appendChild(free)
+</script>
+<html>

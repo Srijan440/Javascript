@@ -1,0 +1,71 @@
+<!-- edit and remove elements in DOM -->
+
+<!-- firstly we create a li through body,then we insert another li through Js -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM | Part4</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+
+<script>
+
+    function addLanguage(langName){
+        const li = document.createElement('li');           //here ('li') indicate that which type of class you want to create
+        li.innerText= langName;                          //yaha tak decide hoga ki kya name hoga
+        
+        //ab decide hoga ki kaise isko body ke konse parts me dale
+
+        document.querySelector('.language').appendChild(li);       //ye kiya ul class ko target kyunki humko wahi pe add krna hai na , pechle wale ocde me bhi same yahi kiye the but usme document.body.appendChild() kiye the kyunki hue body me dalna tha
+}
+    addLanguage('Python')
+    addLanguage('TypeScript')
+
+function addOptiLanguage(langName){
+        const li = document.createElement('li');           
+        // li.innerText= langName;  instead of this we do this time TextNode
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li);       //ye kiya ul class ko target kyunki humko wahi pe add krna hai na , pechle wale ocde me bhi same yahi kiye the but usme document.body.appendChild() kiye the kyunki hue body me dalna tha
+}
+    addOptiLanguage('Java')
+
+
+
+
+//Edit : replace word
+
+    const secondlang =  document.querySelector("li:nth-child(2)")     //li:nth-child(2) there should be no gap in between these words
+    console.log(secondlang);                                          //<li>Python</li>
+    const twoli = document.createElement('li')                        //new twoli liya jisme el <li></li> banaya 
+    twoli.textContent = "PYTHON"                                      // <li>PYTHON</li> proper us type ka bana diya jisse replace karenge apun
+    secondlang.replaceWith(twoli)                                     //and replace ker diya 
+
+
+    const thirdlang = document.querySelector("li:nth-child(3)")       //nth child ka ye benefit hai ki isme 1: JavaScript ko point krta hai but, yahi agar firstchild wala use krte to wo Python ko point krta
+    // firstlang.innerHTML/Text = 'Satyam'                               //ye bhi direct kerke apun value change ker skte hai
+    const threeli = document.createElement("li")                     //but apun ne element hi bana ke replace karwaya
+    threeli.textContent = "Js"
+    thirdlang.replaceWith(threeli)
+
+    // firstlang.outerHTML = 'Satyam' se bhi ho skta hai but isme pura element likhna pad jata hai jo ki kind of shi bhi hai or nhi bhi
+    //ex:->
+    const firstlang = document.querySelector("li:first-child")
+    firstlang.outerHTML = '<li>TypeScript</li>'                   //as name me hi pata chal raha hai ki HTMl hai jiska matlb ye structure follow krega 
+
+    const random = document.querySelector(".language")           //aise bhi ker skte hai but ye mera recommendation hai
+    console.log(random.lastChild);
+    random.children[3].innerText = 'C++'
+
+//remove : delete word
+
+    const lastLang = document.querySelector("li:last-child")
+    lastLang.remove();    
+
+</script>
+</html>

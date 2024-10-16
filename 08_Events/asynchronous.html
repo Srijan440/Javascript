@@ -1,0 +1,32 @@
+<!-- // Java Script jo hota hai wo "Synchronous" and "Single Threaded" hota hai but as default js ki baat kre tohh.-->
+
+<!-- Phir isme ata hai execution context jisme bataya jata hai ki kaise code one by one execute hota hai
+ and each operation waits for the last one to complete before exection : call stack,memory heap,global execution context(03_basics-code+call_Stack) reference-->
+
+
+<!-- Blocking code  vs  Non-Blocking Code 
+        |                    |
+        |                    |
+        |                    |
+        V                    V
+ Block the flow        Does not blockexecution
+ of program
+        |                    |
+        |                    |
+        |                    |
+        V                    V
+  Read file sync       Read file Async
+
+-->
+
+<!-- 
+ab ata hai Js engine jisme: memory heap and call stack hota hai
+phir ata hai WebApi jisme : DOM Api, Set timout, Set interval, or Fetch() hota hai
+phir ata hai promise and task queue
+
+Step 1): jab call stack me koi function ata hai toh wo web api ko transfer(call krta hai) ker diya jata hai  for ex: Set timeout,
+Step 2): Ab set time out ko kon sambhalta hai Register Call back jo yaad dilata rahega ki kaam hua hai ya ho raha hai
+step 3): Phir waha se work task queue ko chala jata hai, jo task complete krne ke baad wapas se call stack ko value de deta hai
+step 4):agar wahi pe set time out ke jagah fetch() ko yeh kaam diya hua rahta toh wo promises queue ko bhejta jaha pe priority ke hisaab se queue me dalta or queue se output stack ko deta
+
+-->
